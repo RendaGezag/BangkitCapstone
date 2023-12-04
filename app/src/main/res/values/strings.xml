@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Educasea</string>
+    <string name="carousel_image_1_description">A race car</string>
+    <string name="carousel_image_2_description">Dotonburi, Osaka</string>
+    <string name="carousel_image_3_description">The Grand Canyon</string>
+    <string name="carousel_image_4_description">A rock structure with its reflection mirrored over the sea</string>
+    <string name="carousel_image_5_description">A car on a long stretch of desert road</string>
+</resources>
