@@ -17,9 +17,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.educasea.ui.theme.Poppins
 
 @Composable
 fun LearnCard () {
@@ -27,10 +30,12 @@ fun LearnCard () {
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
         ),
-        shape = RoundedCornerShape(5.dp),
+        shape = RoundedCornerShape(10.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.Blue
+        ),
         modifier = Modifier
             .fillMaxWidth()
-            .height(100.dp)
     ) {
         Column {
             Row (
@@ -45,17 +50,29 @@ fun LearnCard () {
                     )
                 })
 
-                Spacer(modifier = Modifier.width(16.dp))
+                Spacer(modifier = Modifier.width(5.dp))
 
                 Text(
-                    text = "Mari belajar bersama saya karena saya renda"
+                    text = "Mengenal ragam biota bawah laut Bunaken",
+                    fontFamily = Poppins,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color.White
                 )
             }
+            Row (
+                modifier = Modifier.padding(10.dp, 10.dp)
+            ) {
+                LinearProgressIndicator(
+                    progress = 0.7f,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(6.dp)
+                        .clip(RoundedCornerShape(16.dp)),
+                    color = Color.Yellow,
+                    trackColor = Color.White,
 
-            LinearProgressIndicator(
-                progress = 90f,
-                modifier = Modifier.padding(2.dp)
-            )
+                )
+            }
         }
     }
 }
@@ -64,4 +81,25 @@ fun LearnCard () {
 @Preview
 fun LearnCardPreview () {
     LearnCard()
+}
+
+@Composable
+fun RecommendationCard () {
+    ElevatedCard(
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 6.dp
+        ),
+        shape = RoundedCornerShape(10.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.Blue
+        ),
+        modifier = Modifier
+            .width(100.dp)
+    ) {
+        Column (
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+        }
+    }
 }
