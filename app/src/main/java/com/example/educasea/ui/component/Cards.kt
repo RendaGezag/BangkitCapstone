@@ -74,7 +74,6 @@ fun LearnCard () {
                         .clip(RoundedCornerShape(16.dp)),
                     color = Color.Yellow,
                     trackColor = Color.White,
-
                 )
             }
         }
@@ -88,7 +87,9 @@ fun LearnCardPreview () {
 }
 
 @Composable
-fun RecommendationCard () {
+fun RecommendationCard (
+    modifier: Modifier = Modifier
+) {
     ElevatedCard(
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
@@ -124,4 +125,49 @@ fun RecommendationCard () {
 @Preview
 fun RecommendationCardPreview () {
     RecommendationCard()
+}
+
+@Composable
+fun CategoryCard () {
+    ElevatedCard(
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 6.dp
+        ),
+        shape = RoundedCornerShape(10.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.Blue
+        ),
+        modifier = Modifier
+            .fillMaxWidth().padding(12.dp)
+    ) {
+        Column {
+            Row (
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(5.dp)
+            ) {
+                Canvas(modifier = Modifier.size(40.dp), onDraw = {
+                    val size = 40.dp.toPx()
+                    drawCircle(
+                        color = Color.Gray,
+                        radius = size / 2f
+                    )
+                })
+
+                Spacer(modifier = Modifier.width(5.dp))
+
+                Text(
+                    text = "Biota Laut",
+                    fontFamily = Poppins,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color.White
+                )
+            }
+        }
+    }
+}
+
+@Composable
+@Preview
+fun CategoryCardPreview () {
+    CategoryCard()
 }
