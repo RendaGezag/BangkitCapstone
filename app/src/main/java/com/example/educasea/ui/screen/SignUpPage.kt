@@ -56,8 +56,8 @@ fun SignUpPage(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                painter = painterResource(id = R.drawable.display_jellyfish),
-                contentDescription = "A JellyFish",
+                painter = painterResource(id = R.drawable.logo_educasea),
+                contentDescription = "Logo",
                 modifier = Modifier.size(200.dp)
             )
 
@@ -70,7 +70,7 @@ fun SignUpPage(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = "Create Account",
+                        text = "Buat Akun",
                         fontSize = 24.sp,
                         fontFamily = Poppins,
                         fontWeight = FontWeight.ExtraBold,
@@ -80,13 +80,13 @@ fun SignUpPage(
                     Spacer(modifier = Modifier.height(30.dp))
 
                     Column {
-                        TextInput(label = "Name")
+                        TextInput(label = "Nama Kamu")
                         Spacer(modifier = Modifier.height(16.dp))
                         TextInput(label = "Email")
                         Spacer(modifier = Modifier.height(16.dp))
-                        PasswordInput(label = "Password")
+                        PasswordInput(label = "Kata Sandi")
                         Spacer(modifier = Modifier.height(16.dp))
-                        PasswordInput(label = "Confirm Password")
+                        PasswordInput(label = "Tulis lagi kata sandi")
                     }
                 }
 
@@ -98,10 +98,10 @@ fun SignUpPage(
                     Row(
                         horizontalArrangement = Arrangement.SpaceAround
                     ) {
-                        PrimaryButton(label = "Sign up")
+                        PrimaryButton(label = "Daftar")
                     }
 
-                    TextOnlyButton(label = "Already have an account?", color = Color.White)
+                    TextOnlyButton(label = "Sudah punya akun?", color = Color.White)
                 }
             }
         }

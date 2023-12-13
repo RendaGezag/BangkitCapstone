@@ -49,7 +49,7 @@ fun HomePage(
                 modifier = Modifier.verticalScroll(rememberScrollState())
             ) {
                 Text(
-                    text = "Mari Lanjutkan!",
+                    text = "Lanjut Belajar Yuk..",
                     fontFamily = Poppins,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.SemiBold,

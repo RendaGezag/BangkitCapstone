@@ -57,7 +57,7 @@ fun LearnCard () {
                 Spacer(modifier = Modifier.width(5.dp))
 
                 Text(
-                    text = "Mengenal ragam biota bawah laut Bunaken",
+                    text = "Ikan Badut",
                     fontFamily = Poppins,
                     fontWeight = FontWeight.SemiBold,
                     color = Color.White
@@ -106,12 +106,12 @@ fun RecommendationCard (
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Box(modifier = Modifier
-                .requiredHeight(150.dp)
+                .requiredHeight(160.dp)
                 .fillMaxWidth()
                 .background(color = Color.Gray)
             )
             Text(
-                text = "mengenal ragam biota laut",
+                text = "Ikan  Badut",
                 fontFamily = Poppins,
                 fontWeight = FontWeight.Medium,
                 color = Color.White,
@@ -138,7 +138,8 @@ fun CategoryCard () {
             containerColor = Color.Blue
         ),
         modifier = Modifier
-            .fillMaxWidth().padding(12.dp)
+            .fillMaxWidth()
+            .padding(12.dp)
     ) {
         Column {
             Row (
@@ -170,4 +171,81 @@ fun CategoryCard () {
 @Preview
 fun CategoryCardPreview () {
     CategoryCard()
+}
+
+@Composable
+fun ProfileCard () {
+    ElevatedCard(
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 6.dp
+        ),
+        shape = RoundedCornerShape(10.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.Blue
+        ),
+        modifier = Modifier
+            .fillMaxWidth()
+    ) {
+        Column (
+            modifier = Modifier.padding(16.dp)
+        ) {
+            Row (
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(5.dp)
+            ) {
+                Canvas(modifier = Modifier.size(40.dp), onDraw = {
+                    val size = 40.dp.toPx()
+                    drawCircle(
+                        color = Color.Gray,
+                        radius = size / 2f
+                    )
+                })
+
+                Spacer(modifier = Modifier.width(16.dp))
+                Column {
+                    Text(
+                        text = "Renda Gezag",
+                        fontFamily = Poppins,
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color.White
+                    )
+
+                    Text(
+                        text = "Aku anak baik dan tidak tidak cengeng",
+                        fontFamily = Poppins,
+                        fontWeight = FontWeight.Light,
+                        color = Color.White
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+@Preview
+fun ProfileCardPreview () {
+    ProfileCard()
+}
+
+@Composable
+fun MenuCard () {
+    Row {
+        Row {
+            Canvas(modifier = Modifier.size(20.dp), onDraw = {
+                val size = 20.dp.toPx()
+                drawCircle(
+                    color = Color.Gray,
+                    radius = size / 2f
+                )
+            })
+
+            Text(
+                text = "Profile",
+                fontFamily = Poppins,
+                fontWeight = FontWeight.SemiBold,
+                color = Color.Black
+            )
+        }
+    }
 }

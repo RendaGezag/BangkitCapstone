@@ -54,7 +54,7 @@ fun LandingPage(
             ) {
                 Spacer(modifier = Modifier.height(40.dp))
                 Text(
-                    text = "Let's Explore the Sea",
+                    text = "Ayo jelajahi lautan",
                     style = MaterialTheme.typography.displayLarge,
                     color = Color(0xFF0934C1),
                     textAlign = TextAlign.Center,
@@ -62,16 +62,17 @@ fun LandingPage(
                     fontWeight = FontWeight.SemiBold
                 )
                 Text(
-                    text = "Welcome to our app!",
+                    text = "Jelajahi keajaiban bawah laut dan temukan harta karun yang tersembunyi!",
                     style = MaterialTheme.typography.bodyMedium,
-                    color = Color.White
+                    color = Color.White,
+                    textAlign = TextAlign.Center
                 )
             }
 
             Image(
-                painter = painterResource(id = R.drawable.display_jellyfish),
-                contentDescription = "A JellyFish",
-                modifier = Modifier.size(400.dp)
+                painter = painterResource(id = R.drawable.logo_educasea),
+                contentDescription = "Logo",
+                modifier = Modifier.size(200.dp)
             )
 
             Row(
@@ -79,9 +80,9 @@ fun LandingPage(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
-                PrimaryButton(label = "Sign In")
+                PrimaryButton(label = "Masuk")
                 Spacer(modifier = Modifier.width(10.dp))
-                SecondaryButton(label = "Sign Up")
+                SecondaryButton(label = "Daftar")
             }
         }
     }

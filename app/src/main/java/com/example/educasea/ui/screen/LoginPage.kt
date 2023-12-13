@@ -50,8 +50,8 @@ fun LoginPage (
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                painter = painterResource(id = R.drawable.display_jellyfish),
-                contentDescription = "A JellyFish",
+                painter = painterResource(id = R.drawable.logo_educasea),
+                contentDescription = "Logo",
                 modifier = Modifier.size(400.dp)
             )
 
@@ -64,7 +64,7 @@ fun LoginPage (
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = "Login",
+                        text = "Masuk",
                         fontSize = 24.sp,
                         fontFamily = Poppins,
                         fontWeight = FontWeight.ExtraBold,
@@ -76,7 +76,7 @@ fun LoginPage (
                     Column {
                         TextInput(label = "Email")
                         Spacer(modifier = Modifier.height(16.dp))
-                        PasswordInput(label = "Password")
+                        PasswordInput(label = "Kata sandi")
                     }
                 }
 
@@ -85,7 +85,7 @@ fun LoginPage (
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
-                    PrimaryButton(label = "Sign in")
+                    PrimaryButton(label = "Masuk")
                 }
             }
         }
