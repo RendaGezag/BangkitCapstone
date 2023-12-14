@@ -175,6 +175,12 @@ fun PasswordInputPreview () {
     PasswordInput(label = "Password")
 }
 
+@Composable
+@Preview
+fun SearchInputPreview () {
+    SearchInput(label = "Cari")
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchInput (
@@ -192,12 +198,7 @@ fun SearchInput (
             containerColor = Color.White
         ),
         leadingIcon = { Icon(Icons.Filled.Search, contentDescription = "Search icon")},
-        modifier = Modifier.height(50.dp).fillMaxWidth()
-    )
-}
 
-@Composable
-@Preview
-fun SearchInputPreview () {
-    SearchInput(label = "Cari")
+        modifier = Modifier.height(60.dp).fillMaxWidth()
+    )
 }
