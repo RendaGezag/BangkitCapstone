@@ -30,6 +30,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.educasea.ui.theme.Poppins
+import org.w3c.dom.Text
 
 @Composable
 fun LearnCard (
@@ -143,7 +144,8 @@ fun RecommendationCardPreview () {
 
 @Composable
 fun CategoryCard (
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    text: String = "Add text"
 ) {
     ElevatedCard(
         elevation = CardDefaults.cardElevation(
@@ -172,7 +174,7 @@ fun CategoryCard (
                 Spacer(modifier = Modifier.width(5.dp))
 
                 Text(
-                    text = "Biota Laut",
+                    text = text,
                     fontFamily = Poppins,
                     fontWeight = FontWeight.SemiBold,
                     color = Color.White
