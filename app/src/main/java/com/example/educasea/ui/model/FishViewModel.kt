@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class FishViewModel: ViewModel() {
     private val _fishList = mutableStateListOf<Fish>()
-    private var errorMessage: String by mutableStateOf("")
+    var errorMessage: String by mutableStateOf("")
     val fishList: List<Fish>
         get() = _fishList
 

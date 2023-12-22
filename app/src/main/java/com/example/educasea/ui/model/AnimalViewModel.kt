@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class AnimalViewModel : ViewModel() {
     private val _animalList = mutableListOf<Animal>()
-    private var errorMessage: String by mutableStateOf("")
+    var errorMessage: String by mutableStateOf("")
 
     val animalList: List<Animal>
         get() = _animalList

@@ -31,28 +31,28 @@ import androidx.compose.ui.unit.sp
 import com.example.educasea.R
 import com.example.educasea.ui.component.CategoryCard
 import com.example.educasea.ui.component.SearchInput
-import com.example.educasea.ui.model.BiotaViewModel
+import com.example.educasea.ui.model.FishViewModel
 import com.example.educasea.ui.theme.Poppins
 
 @Composable
-fun BiotaPage(
-    vm: BiotaViewModel, modifier: Modifier? = Modifier
+fun FishPage (
+    vm: FishViewModel,
+    modifier: Modifier = Modifier
 ) {
     var searchQuery by remember { mutableStateOf("") }
 
     LaunchedEffect(Unit, block = {
-        vm.getBiotaList()
+        vm.getFishList()
     })
 
-    BoxWithConstraints(
-        modifier = Modifier
-            .background(Color.White)
-            .fillMaxSize()
+    BoxWithConstraints(modifier = Modifier
+        .background(Color.White)
+        .fillMaxSize()
     ) {
-        Column(
+        Column (
             modifier = Modifier.padding(10.dp, 10.dp)
         ) {
-            Row(
+            Row (
                 horizontalArrangement = Arrangement.Center,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -72,23 +72,22 @@ fun BiotaPage(
                 )
             }
 
-            SearchInput(label = "Cari", onValueChange = { searchQuery = it })
+            SearchInput(
+                label = "Cari",
+                onValueChange = { searchQuery = it }
+            )
 
             if (vm.errorMessage.isEmpty()) {
-                Column(
+                Column (
                     modifier = Modifier.padding(0.dp, 10.dp, 0.dp, 0.dp)
                 ) {
                     LazyColumn {
-                        items(vm.biotaList.filter {
-                            it.name.contains(
-                                searchQuery, ignoreCase = true
-                            )
-                        }) { biota ->
+                        items(vm.fishList.filter { it.name.contains(searchQuery, ignoreCase = true) }) { fish ->
                             CategoryCard(
                                 modifier = Modifier.padding(0.dp, 12.dp, 0.dp, 0.dp),
-                                text = biota.name,
-                                imageAlt = biota.name,
-                                imageUrl = biota.imageUrl
+                                text = fish.name,
+                                imageAlt = fish.name,
+                                imageUrl = fish.imageUrl
                             )
 
                             Spacer(modifier = Modifier.height(10.dp))
@@ -104,8 +103,8 @@ fun BiotaPage(
 
 @Composable
 @Preview
-fun BiotaPagePreview() {
-    BiotaPage(
-        vm = BiotaViewModel()
+fun FishPagePreview () {
+    FishPage(
+        vm = FishViewModel()
     )
 }

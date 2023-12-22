@@ -25,34 +25,34 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.educasea.R
 import com.example.educasea.ui.component.CategoryCard
 import com.example.educasea.ui.component.SearchInput
-import com.example.educasea.ui.model.BiotaViewModel
+import com.example.educasea.ui.model.AnimalViewModel
 import com.example.educasea.ui.theme.Poppins
 
 @Composable
-fun BiotaPage(
-    vm: BiotaViewModel, modifier: Modifier? = Modifier
+fun AnimalPage (
+    vm: AnimalViewModel,
+    modifier: Modifier = Modifier
 ) {
     var searchQuery by remember { mutableStateOf("") }
 
-    LaunchedEffect(Unit, block = {
-        vm.getBiotaList()
+    LaunchedEffect(Unit , block = {
+        vm.getAnimalList()
     })
 
-    BoxWithConstraints(
+    BoxWithConstraints (
         modifier = Modifier
             .background(Color.White)
             .fillMaxSize()
     ) {
-        Column(
+        Column (
             modifier = Modifier.padding(10.dp, 10.dp)
         ) {
-            Row(
+            Row (
                 horizontalArrangement = Arrangement.Center,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -72,23 +72,22 @@ fun BiotaPage(
                 )
             }
 
-            SearchInput(label = "Cari", onValueChange = { searchQuery = it })
+            SearchInput(
+                label = "Cari",
+                onValueChange = { searchQuery = it }
+            )
 
             if (vm.errorMessage.isEmpty()) {
-                Column(
+                Column (
                     modifier = Modifier.padding(0.dp, 10.dp, 0.dp, 0.dp)
                 ) {
                     LazyColumn {
-                        items(vm.biotaList.filter {
-                            it.name.contains(
-                                searchQuery, ignoreCase = true
-                            )
-                        }) { biota ->
+                        items(vm.animalList.filter { it.name.contains(searchQuery, ignoreCase = true) }) { animal ->
                             CategoryCard(
                                 modifier = Modifier.padding(0.dp, 12.dp, 0.dp, 0.dp),
-                                text = biota.name,
-                                imageAlt = biota.name,
-                                imageUrl = biota.imageUrl
+                                text = animal.name,
+                                imageAlt = animal.name,
+                                imageUrl = animal.imageUrl
                             )
 
                             Spacer(modifier = Modifier.height(10.dp))
@@ -100,12 +99,4 @@ fun BiotaPage(
             }
         }
     }
-}
-
-@Composable
-@Preview
-fun BiotaPagePreview() {
-    BiotaPage(
-        vm = BiotaViewModel()
-    )
 }

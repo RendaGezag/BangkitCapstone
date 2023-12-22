@@ -23,7 +23,7 @@ fun CategoryGrid (
             bottom = 16.dp
         ),
         content = {
-            items(list.size) { index ->
+            items(list.size) {
                 CategoryCard()
             }
         }
