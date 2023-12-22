@@ -6,22 +6,22 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.educasea.ui.api.BiotaService
-import com.example.educasea.ui.api.Biota
+import com.example.educasea.ui.api.Fish
+import com.example.educasea.ui.api.FishService
 import kotlinx.coroutines.launch
 
-class BiotaViewModel : ViewModel() {
-    private val _biotaList = mutableStateListOf<Biota>()
-    var errorMessage: String by mutableStateOf("")
-    val biotaList: List<Biota>
-        get() = _biotaList
+class FishViewModel: ViewModel() {
+    private val _fishList = mutableStateListOf<Fish>()
+    private var errorMessage: String by mutableStateOf("")
+    val fishList: List<Fish>
+        get() = _fishList
 
-    fun getBiotaList() {
+    fun getFishList() {
         viewModelScope.launch {
-            val biotaService = BiotaService.getInstance()
+            val fishService = FishService.getInstance()
             try {
-                _biotaList.clear()
-                _biotaList.addAll(biotaService.getBiotas())
+                _fishList.clear()
+                _fishList.addAll(fishService.getFishes())
 
             } catch (e: Exception) {
                 errorMessage = e.message.toString()
