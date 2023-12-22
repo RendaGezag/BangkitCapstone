@@ -1,6 +1,7 @@
 package com.example.educasea.ui.component
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,9 +15,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -25,10 +28,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
+import coil.compose.rememberAsyncImagePainter
+import coil.compose.rememberImagePainter
+import coil.request.ImageRequest
+import coil.transform.CircleCropTransformation
 import com.example.educasea.ui.theme.Poppins
 import org.w3c.dom.Text
 
@@ -145,7 +155,9 @@ fun RecommendationCardPreview () {
 @Composable
 fun CategoryCard (
     modifier: Modifier = Modifier,
-    text: String = "Add text"
+    text: String = "Add text",
+    imageUrl: String = "https://picsum.photos/200/",
+    imageAlt: String = "Image"
 ) {
     ElevatedCard(
         elevation = CardDefaults.cardElevation(
@@ -163,15 +175,20 @@ fun CategoryCard (
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.padding(5.dp)
             ) {
-                Canvas(modifier = Modifier.size(40.dp), onDraw = {
-                    val size = 40.dp.toPx()
-                    drawCircle(
-                        color = Color.Gray,
-                        radius = size / 2f
-                    )
-                })
+                val painter = rememberAsyncImagePainter(
+                    model = imageUrl
+                )
 
-                Spacer(modifier = Modifier.width(5.dp))
+                Image(
+                    painter = painter,
+                    contentDescription = imageAlt,
+                    modifier = Modifier
+                        .size(40.dp)
+                        .clip(CircleShape),
+                    contentScale = ContentScale.FillHeight
+                )
+
+                Spacer(modifier = Modifier.width(10.dp))
 
                 Text(
                     text = text,

@@ -178,19 +178,26 @@ fun PasswordInputPreview () {
 @Composable
 @Preview
 fun SearchInputPreview () {
-    SearchInput(label = "Cari")
+    SearchInput (
+        label = "Cari",
+        onValueChange = {}
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchInput (
-    label: String
+    label: String,
+    onValueChange: (String) -> Unit
 ) {
     var text by remember { mutableStateOf("") }
 
     OutlinedTextField(
         value = text,
-        onValueChange = { text = it },
+        onValueChange = {
+            text = it
+            onValueChange(it)
+        },
         label = { Text(label) },
         singleLine = true,
         shape = RoundedCornerShape(100),
@@ -198,7 +205,6 @@ fun SearchInput (
             containerColor = Color.White
         ),
         leadingIcon = { Icon(Icons.Filled.Search, contentDescription = "Search icon")},
-
         modifier = Modifier.height(60.dp).fillMaxWidth()
     )
 }
